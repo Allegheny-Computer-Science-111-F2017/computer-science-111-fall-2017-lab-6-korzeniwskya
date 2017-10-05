@@ -9,7 +9,7 @@ public class ManipulateDna {
 
   public static void main(String[] args) {
     // display the name of the programmer and the date
-    System.out.println("Gregory M. Kapfhammer " + new Date());
+    System.out.println("Alex Korzeniwsky " + new Date());
     // declare the starting file and scanner
     File dnaInputsFile = null;
     Scanner scanner = null;
@@ -21,7 +21,9 @@ public class ManipulateDna {
       System.out.println("Unable to locate file");
     }
     // Step One: Read in and display the chosen DNA string
-
+    String dna = scanner.nextLine();
+    System.out.println(dna);
+    
     // Step Two: Compute the complement of the DNA String
 
     // Step Three: Insert a randomly chosen DNA letter into the DNA String
