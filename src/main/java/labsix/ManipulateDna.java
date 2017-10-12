@@ -3,12 +3,16 @@ package labsix;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ManipulateDna {
 
   /**
-   ** The 
+   ** The purpose of this code is to modify an initial DNA sequence.
+   ** Through the use of '.replace', 'StringBuffer', 'StringBuilder'.
+   */
+
   public static void main(String[] args) {
     // display the name of the programmer and the date
     System.out.println("Alex Korzeniwsky " + new Date());
@@ -24,23 +28,32 @@ public class ManipulateDna {
     }
     // Step One: Read in and display the chosen DNA string
     String dna = scanner.nextLine();
-    System.out.println(dna);
+    System.out.println("We will be working with a string of DNA: \"" + dna + "\"");
     // Step Two: Compute the complement of the DNA String
-    dna = dna.replace('a', 'T');
-    dna = dna.replace('c', 'G');
-    dna = dna.replace('t', 'A');
-    dna = dna.replace('g', 'C');
-    dna = dna.toLowerCase();
-    System.out.println(dna);
+    String dnaMod = dna;
+    dnaMod = dnaMod.replace('a', 'T');
+    dnaMod = dnaMod.replace('c', 'G');
+    dnaMod = dnaMod.replace('t', 'A');
+    dnaMod = dnaMod.replace('g', 'C');
+    dnaMod = dnaMod.toLowerCase();
+    System.out.println("The complement to \"" + dna + "\" is \"" + dnaMod + "\"");
     // Step Three: Insert a randomly chosen DNA letter into the DNA String
-    dna = new StringBuffer(dna).insert(2, "c").toString();
-    System.out.println(dna);
-    // Step Four: Delete a DNA letter from a randomly chosen position in the DNA string
-    StringBuilder dnaMod = new StringBuilder(dna);
-    dnaMod.deleteCharAt(1);
-    System.out.println(dnaMod);
-    // Step Five: Change a random position in the DNA String to a randomly chosen DNA letter
+    Random generator = new Random();
+    int randNum1 = generator.nextInt(4);
 
+    String dnaInsert = dna.substring(0,randNum1) + "c" + dna.substring(randNum1);
+    System.out.println("DNA with a random insertion may look like this: \"" + dnaInsert + "\"");
+    // Step Four: Delete a DNA letter from a randomly chosen position in the DNA string
+    StringBuilder dnaModOut = new StringBuilder(dna);
+    dnaModOut.deleteCharAt(1);
+    System.out.println("DNA with a deletion may look like this; \"" + dnaModOut + "\"");
+    // Step Five: Change a random position in the DNA String to a randomly chosen DNA letter
+    StringBuilder dnaRand = new StringBuilder(dna);
+    int randNum2 = generator.nextInt(4);
+    int randNum3 = generator.nextInt(4);
+    char replaceChar = dna.charAt(randNum2);
+    dnaRand.setCharAt(randNum3, replaceChar);
+    System.out.println(dnaRand);
     // Step Six: Display a final thankyou message
     System.out.println("Thank you for experimenting with DNA!");
 
