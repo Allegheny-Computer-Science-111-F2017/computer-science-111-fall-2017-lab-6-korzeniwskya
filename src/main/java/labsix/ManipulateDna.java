@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * This program is a practice with Scanner functions, string munipulation, and Random numbers.
+ */
+ 
 public class ManipulateDna {
 
   /**
